@@ -17,18 +17,32 @@
         </style>
     </head>
    
+<%@ page import="java.util.*" %>
+<%@ page import="java.time.ZonedDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.ZoneId" %>
     <body>
         <h1>Live Chat updates</h1>
-
+<h2>
+<%
+    String name=request.getParameter("user");
+    out.print("Welcome " +name); %>
+</h2>
+	    
 <div>
   
     <div id="chat" class="chat">
+	<%
+            ZonedDateTime nowZonedDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy - HH:mm:ss z");
+            String formattedStringUTC = nowZonedDateTime.format(formatter);
+        %>
    
-  ${chats}<br>
+  <p>${chats}<br>UTC Time: <%= formattedStringUTC %></p>
       
       </div>
          <div>
-           <form action="ChatServlet" method="post">
+           <form action="ChatServlet" id="myForm" method="post">
 	            <input type="text" name="msg" id="msg" placeholder=""/>
 	    	    <input type="text" name="user" id="user" placeholder="Enter user name here"/>
 	    
@@ -36,5 +50,10 @@
            </form> 
          </div>
       </div>
+	    
+ <%
+    session.setAttribute("user",name);
+%>    
+	    
      </body>
 </html>
