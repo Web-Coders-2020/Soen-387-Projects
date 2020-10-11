@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +22,19 @@
 
 <div>
   
-    <div id="chat" class="chat"></div>
-    <div>
-      <form action="ChatServlet" method="post">
-	    <input type="text" name="msg" id="msg" placeholder="Enter message here"/>
-        <input type="submit" value="Enter">
-       </form> 
-    </div>
-</div>
-    </body>
+    <div id="chat" class="chat">
+   
+  ${chats}<br>
+      
+      </div>
+         <div>
+           <form action="ChatServlet" method="post">
+	            <input type="text" name="msg" id="msg" placeholder=""/>
+	    	    <input type="text" name="user" id="user" placeholder="Enter user name here"/>
+	    
+                <input type="submit" value="Enter">
+           </form> 
+         </div>
+      </div>
+     </body>
 </html>

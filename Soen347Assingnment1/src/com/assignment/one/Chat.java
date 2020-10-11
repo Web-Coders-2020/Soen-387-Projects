@@ -1,18 +1,16 @@
 package com.assignment.one;
 
 public class Chat {
-	private String  message;
-
-	public Chat(String message) {
+	public String user;
+	public String message;
+	public Chat(String user, String message) {
 		super();
+		this.user = user;
 		this.message = message;
 	}
 
-	public String getMessage() {
-		return message;
+	public String toString() {
+		return user+":"+message +"\n";
 	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
+	
 }
