@@ -23,7 +23,7 @@
 <div>
   
     <div id="chat" class="chat">
-   aa
+   
   ${chats}<br>
       
       </div>
