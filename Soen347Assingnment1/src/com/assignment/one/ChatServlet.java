@@ -49,6 +49,7 @@ public class ChatServlet extends HttpServlet {
 		String msg = request.getParameter("msg");
 		String user = request.getParameter("user");
 		
+		// if no username is entered show the user as Anonymous in the chat window
 		if (user == null || user.isEmpty() )
                   user = "Anonymous";
 		
