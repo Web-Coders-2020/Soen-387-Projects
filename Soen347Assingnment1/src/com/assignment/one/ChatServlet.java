@@ -49,6 +49,9 @@ public class ChatServlet extends HttpServlet {
 		String msg = request.getParameter("msg");
 		String user = request.getParameter("user");
 		
+		if (user == null || user.isEmpty() )
+                  user = "Anonymous";
+		
 		ChatRepository.instance().save(user, msg);
 		
 		doGet(request,response);
