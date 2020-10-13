@@ -31,6 +31,9 @@ public class ChatServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Set refresh, autoload time as 10 seconds
+        	response.setIntHeader("Refresh", 10);
+		
 		String chats="";
 		for(Chat chat:ChatRepository.instance().getAllMessges())
 			chats+=chat.user+":"+chat.message+"\n";
