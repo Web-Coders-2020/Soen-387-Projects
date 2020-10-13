@@ -26,7 +26,8 @@
 <h2>
 <%
     String name=request.getParameter("user");
-    out.print("Welcome " +name); %>
+    out.print("Welcome " +name); 
+ %>
 </h2>
 	    
 <div>
