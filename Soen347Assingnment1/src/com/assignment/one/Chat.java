@@ -9,6 +9,22 @@ public class Chat {
 		this.message = message;
 	}
 
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
 	public String toString() {
 		return user+":"+message +"\n";
 	}

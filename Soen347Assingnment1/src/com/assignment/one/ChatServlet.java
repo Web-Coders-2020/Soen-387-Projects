@@ -35,7 +35,7 @@ public class ChatServlet extends HttpServlet {
 		for(Chat chat:ChatRepository.instance().getAllMessges())
 			chats+=chat.user+":"+chat.message+"\n";
 			
-		request.setAttribute("chats",chats );
+		request.setAttribute("chats",chats);
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	
@@ -60,7 +60,7 @@ public class ChatServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected  void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		ChatRepository.instance().deleteAll();
 		doGet(req, resp);
