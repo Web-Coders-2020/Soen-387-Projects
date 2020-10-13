@@ -1,7 +1,7 @@
 # Chat Server
 
-## Pourpose 
-Pourpose of this mini project is to build a chat server using various java web-based technology.
+## Purpose 
+Purpose of this mini project is to build a chat server using various java web-based technology.
 Also some other web-based technology for the front-end development.
 
 ## Project Description
