@@ -22,7 +22,7 @@ refresh button. Also user should be able to select chats by providing the date r
 |Muhammad Shah Newaz       |25067022                      |abirshah
 |Athena Kazis              |22403641                      |athenak
 |Josephine Ng              |40001872                      |jing11232
-|                          |                              |
+|Luqman Aungnoo            |40074656                      |
 
 ## Technology and Tools
 * HTML
