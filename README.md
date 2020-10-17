@@ -20,7 +20,7 @@ Web-based chat server where users can communicate with each other. Users don't n
 |Muhammad Shah Newaz       |25067022                      |abirshah
 |Athena Kazis              |22403641                      |athenak
 |Josephine Ng              |40001872                      |jing11232
-|Luqman Aungnoo            |40074656                      |
+|Luqman Aungnoo            |40074656                      |luqxz
 
 ## Technology and Tools
 * HTML
