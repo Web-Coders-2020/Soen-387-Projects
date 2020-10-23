@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: darkslategray;
+    margin-left: 2em;
+    margin-right: 2em;
+    background-color: #d2d6db;
+}
+h1 {
+    text-align: center;
+    color: lightslategrey;
+}
+label {
+    float: left;
+    width: 6em;
+    margin-bottom: 0.5em;
+}
+input[type="text"]{
+    width: 15em;
+    margin-left: 0.9em;
+    margin-bottom: 0.5em;
+}
+br {
+    clear: both;
+}
+#submit {
+    margin-left: 0.5em;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
+}
+
+
+
+
+
+
