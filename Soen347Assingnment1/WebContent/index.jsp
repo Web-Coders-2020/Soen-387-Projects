@@ -22,6 +22,7 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="java.time.ZoneId" %>
 <%@page import="com.assignment.one.ChatServlet"%>
+<%@page import="com.assignment.one.ChatRepository"%>
     <body>
         <h1>Live Chat updates</h1>
 <h2>
@@ -41,6 +42,7 @@
         %>
    
   <p>${chats}<br> Time: <%= formattedStringUTC %></p>
+  
       
       </div>
          <div>
@@ -51,7 +53,7 @@
                 <input type="submit" value="Enter">
            </form> 
          </div>
-       
+          <input type="button" value="Refresh" onclick="">
       </div>
 	    
  <%

@@ -33,7 +33,7 @@ public class ChatServlet extends HttpServlet {
 		
 		String chats="";
 		for(Chat chat:ChatRepository.instance().getAllMessges())
-			chats+=chat.user+":"+chat.message+"\n";
+			chats +=chat.user+":"+chat.message+"\n";
 			
 		request.setAttribute("chats",chats);
 		
