@@ -9,6 +9,7 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: coral;
 }
 
 * {
@@ -138,10 +139,10 @@ input[type=submit]:hover {
 </head>
   
   <body>
-    <h2 style="color:blue;" align ="center" >Please Login for posting your blog</h2>
+    <h2 style="color:green;" align ="center" >Please Login for posting your blog</h2>
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="">
     <div class="row">
       <h2 style="color:orange;" align="center">Login with Social Media or Manually</h2>
       <div class="vl">
