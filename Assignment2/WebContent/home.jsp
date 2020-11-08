@@ -84,15 +84,16 @@ body {
 </div>
 <div class="row" >
   <h2>Write comment or Upload a file</h2>
-  <div>
+  <div class = "fakeimg">
    <form action = "" method = "post">
+    <input type = "text" name = "username"><br><br>
     <textarea id="w3review" name="w3review" rows="4" cols="50">
     
    </textarea><br><br>
     <input type = "submit" value = "Post Blog"><br>
    </form>
-  </div>
-  <div>
+  </div><br>
+  <div class = "fakeimg">
    <form action = "" method = "post">
     <br><input type = "file" name = "uploadFile"><br>
     <input type = "submit" value = "Upload File">
@@ -114,7 +115,7 @@ body {
     <div class="card">
       <h2>About Me</h2>
       <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <p>Some text about me</p>
     </div>
     <div class="card">
       <h3>Popular Post</h3>
