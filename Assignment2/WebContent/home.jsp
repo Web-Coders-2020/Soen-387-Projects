@@ -49,7 +49,7 @@ body {
 /* Add a card effect for articles */
 .card {
    background-color: white;
-   padding: 20px;
+   padding: 5px;
    margin-top: 20px;
 }
 
@@ -82,23 +82,33 @@ body {
 <div class="header" >
   <h2>Your SOEN387 Blog</h2>
 </div>
+<div class="row" >
+  <h2>Write comment or Upload a file</h2>
+  <div>
+   <form action = "" method = "post">
+    <textarea id="w3review" name="w3review" rows="4" cols="50">
+    
+   </textarea><br><br>
+    <input type = "submit" value = "Post Blog"><br>
+   </form>
+  </div>
+  <div>
+   <form action = "" method = "post">
+    <br><input type = "file" name = "uploadFile"><br>
+    <input type = "submit" value = "Upload File">
+   </form>
+  </div>
+</div>
 
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
       <h2>TITLE HEADING</h2>
       <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
+      <div class="fakeimg" style="height:100px;">Image</div>
       <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
-    <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
       <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
+    </div> 
   </div>
   <div class="rightcolumn">
     <div class="card">
