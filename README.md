@@ -18,7 +18,7 @@ Web-based blog where users can communicate with each other. Users will need to b
   * Select message by user name.
   * Select message by hast tag.
   * Post a attachment.
-  * Download a attachment.
+  * 
   
 ## Team Members
 
