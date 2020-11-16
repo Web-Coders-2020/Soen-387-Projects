@@ -27,7 +27,7 @@ Web-based blog where users can communicate with each other. Users will need to b
 |Muhammad Shah Newaz       |25067022                      |abirshah
 |Athena Kazis              |22403641                      |athenak
 |Josephine Ng              |40001872                      |jng11232
-|Luqman Aungnoo            |40074656                      |
+|Luqman Aungnoo            |40074656                      |luqxz
 
 ## Technology and Tools
 * HTML
