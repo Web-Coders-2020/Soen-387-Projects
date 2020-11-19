@@ -1,0 +1,16 @@
+CREATE DATABASE servlet;
+
+use servlet;
+
+create table post (
+	id INT not null auto_increment primary key, 
+	title varchar(2048), 
+	user_id varchar(1024), 
+	created DATETIME, 
+	modified DATETIME, 
+	content varchar(4096),
+	data blob
+);
+
+insert into post (title, user_id, created, modified, content) 
+	values ("title1", "user1", "2020-05-23 15:48:59", NULL, "content1");
