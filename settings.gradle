@@ -1,4 +1,5 @@
-rootProject.name = 'Assignment2'
+rootProject.name = 'Assignment3'
 include 'web'
-include 'BussinessLayer'
+include 'PostMessageBoardDomain'
+include 'UserManagementDomain'
 
