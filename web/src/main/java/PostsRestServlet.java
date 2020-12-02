@@ -19,7 +19,7 @@ public class PostsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        Authentication.authenticateUser(request);
+      /*  Authentication.authenticateUser(request);
 
 
         String creatorId = request.getParameter("creatorId");
@@ -33,27 +33,30 @@ public class PostsServlet extends HttpServlet {
         List<String> hashTags = hashTagsParameter == null ? new ArrayList<>(): Arrays.asList(hashTagsParameter.split(","));
 
         FetchPostsUsecase usecase = new FetchPostsUsecase();
-        List<Post> postList = usecase.execute(creatorId, startDate,endDate, hashTags);
+       List<Post> postList = usecase.execute("",creatorId, startDate,endDate, hashTags);
 
-        response.getWriter().print(postList.toString());
+        response.getWriter().print(postList.toString());*/
     }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        Authentication.authenticateUser(request);
+        String requesterUserId = Authentication.extractUserIdFromSession(request);
 
 
-        String userId = request.getParameter("userId");
         String title = request.getParameter("title");
         String content = request.getParameter("content");
+        String authorizedGroup = request.getParameter("authorizedGroup");
 
 
         CreatePostUsecase usecase = new CreatePostUsecase();
-        String postId = usecase.execute(title,content,userId);
+        String postId = usecase.execute(title,content,requesterUserId,authorizedGroup);
 
-        request.setAttribute("postId", postId);
+        response.getOutputStream().write();
+        response.setStatus(201);
+
+        //request.setAttribute("postId", postId);
         //request.getRequestDispatcher("response.jsp").forward(request, response);
     }
 }
