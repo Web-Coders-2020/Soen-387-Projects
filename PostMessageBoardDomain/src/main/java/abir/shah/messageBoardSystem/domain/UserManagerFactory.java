@@ -1,8 +1,7 @@
 package abir.shah.messageBoardSystem.domain;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Properties;
 
 public class UserManagerFactory {
 
@@ -10,16 +9,17 @@ public class UserManagerFactory {
 
     public static UserManager createInstance()
     {
-           return new UserManager() {
-               @Override
-               public List<String> getGroupsUserBelongTo(String userId) {
-                   return new ArrayList<String>(List.of("G1","G2"));
-               }
+        try {
 
-               @Override
-               public boolean isAdmin(String requesterUserId) {
-                   return  requesterUserId.equals("1");
-               }
-           };
+            Properties properties = new  Properties();
+            properties.load(UserManagerFactory.class.getResourceAsStream("/Dependencies"));
+
+            String implementationClassFQN = properties.getProperty("abir.shah.messageBoardSystem.domain.UserManager");
+            return  (UserManager)Class.forName(implementationClassFQN).newInstance() ;
+
+        }catch (Exception e)
+        {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -2,6 +2,7 @@ package abir.shah.messageBoardSystem.persistence;
 
 
 import abir.shah.messageBoardSystem.domain.entity.Post;
+import abir.shah.messageBoardSystem.exception.NoSuchPostWithId;
 import org.h2.Driver;
 
 import java.sql.*;
@@ -89,7 +90,12 @@ public class PostRepository {
 
     public Post fetchById(String postId)
     {
-        return fetchPostsWithSelect("select * from Post where id = '"+ postId +"'").get(0);
+        try{
+            return fetchPostsWithSelect("select * from Post where id = '"+ postId +"'").get(0);
+        }catch (Exception e)
+        {
+            throw new NoSuchPostWithId(postId);
+        }
     }
 
     private List<Post> fetchPostsWithSelect(String selectSql) {
@@ -137,7 +143,7 @@ public class PostRepository {
         boolean hasHashTags = hashTags!=null && !hashTags.isEmpty();
         boolean hasGroups = groups != null;
 
-        boolean hasCriteria = hasCreatorId || hasStartDate || hasEndDate || hasHashTags;
+        boolean hasCriteria = hasCreatorId || hasStartDate || hasEndDate || hasHashTags || hasGroups;
 
         String contentHashTagCriteria = "(";
 
@@ -170,10 +176,10 @@ public class PostRepository {
         String selectSql = "select * from post " +
 
                 (hasCriteria ? " where ":"")+
-                (hasCreatorId ? " creatorUser='" + creatorId +"'   and ": "")+
-                (hasStartDate ?"'  creationDate> '" + startDate.toString() + "'   and " : "") +
-                (hasEndDate ? "creationDate< '" + startDate.toString() + "'   and " : "") +
-                (hasGroups ? "(authorizedGroupToView in   "+allGroupsString+" or authorizedGroupToView='' or authorizedGroupToView='null') and " : "") +
+                (hasCreatorId ? " creatorUser='" + creatorId +"'   and": "")+
+                (hasStartDate ?"'  creationDate> '" + startDate.toString() + "'   and" : "") +
+                (hasEndDate ? "creationDate< '" + startDate.toString() + "'   and" : "") +
+                (hasGroups ? "((authorizedGroupToView in   "+allGroupsString+") or authorizedGroupToView='' or authorizedGroupToView='null') and" : "") +
                 (hasHashTags ? contentHashTagCriteria : "");
 
         if(selectSql.endsWith("and"))

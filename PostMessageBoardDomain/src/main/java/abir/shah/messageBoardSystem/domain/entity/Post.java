@@ -49,9 +49,10 @@ public class Post {
         return id;
     }
 
-    public void update(String newTitle, String newContent) {
+    public void update(String newTitle, String newContent,String authorizedGroupToView) {
         this.title = newTitle;
         this.content = newContent;
+        this.authorizedGroupToView = authorizedGroupToView;
 
         lastModificationDate = new Date().toString();
         isUpdated = true;

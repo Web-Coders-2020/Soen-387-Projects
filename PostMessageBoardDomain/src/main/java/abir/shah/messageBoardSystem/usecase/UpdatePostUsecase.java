@@ -8,7 +8,7 @@ import abir.shah.messageBoardSystem.persistence.PostRepository;
 
 public class UpdatePostUsecase
 {
-    public void  execute(String postId , String newTitle , String newContent,String requesterUserId)
+    public void  execute(String postId , String newTitle , String newContent,String authorizedGroup,String requesterUserId)
     {
         PostRepository postRepository = new PostRepository();
         Post post=postRepository.fetchById(postId);
@@ -18,7 +18,7 @@ public class UpdatePostUsecase
         if(!post.getCreatorUserId().equals(requesterUserId) && !requesterIdAdmin)
             throw new OnlyTheCreatorAndAdminCanModifyPost();
 
-        post.update(newTitle,newContent);
+        post.update(newTitle,newContent,authorizedGroup);
 
         postRepository.update(post);
     }

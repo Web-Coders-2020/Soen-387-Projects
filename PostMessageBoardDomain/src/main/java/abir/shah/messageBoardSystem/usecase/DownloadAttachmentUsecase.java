@@ -10,8 +10,11 @@ public class DownloadAttachmentUsecase {
 
     public byte[] execute(String attachmentId)
     {
+
         AttachmentRepository repository = new AttachmentRepository();
         Attachment attachment = repository.fetchById(attachmentId);
+
+
         byte[] allBytes = readAllBytesOfFile(attachment);
         return allBytes;
     }
