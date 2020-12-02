@@ -16,16 +16,12 @@ repositories {
 
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
-    implementation (project(":BussinessLayer"))
+    implementation (project(":PostMessageBoardDomain"))
+        implementation (project(":UserManagementDomain"))
 
-    // The following dependencies will be the ear modules and
-    // will be placed in the ear root
-    // deploy project(':war')
+    // https://mvnrepository.com/artifact/org.json/json
+    compile group: 'org.json', name: 'json', version: '20201115'
 
-    // The following dependencies will become ear libs and will
-    // be placed in a dir configured via the libDirName property
-    // earlib group: 'log4j', name: 'log4j'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
