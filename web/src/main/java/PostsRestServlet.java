@@ -39,6 +39,7 @@ public class PostsRestServlet extends HttpServlet {
         List<JSONObject> postJsonList = postList.stream().map((p)->postToJsonObject(p)).collect(Collectors.toList());
         response.setContentType("application/json");
         response.getWriter().print(new JSONArray(postJsonList).toString());
+        response.setStatus(200);
     }
 
     private JSONObject postToJsonObject(Post post)
@@ -87,6 +88,7 @@ public class PostsRestServlet extends HttpServlet {
         DeletePostUsecase usecase = new DeletePostUsecase();
         usecase.execute(postId,requesterUserId);
 
+        resp.setStatus(202);
     }
 
     @Override
