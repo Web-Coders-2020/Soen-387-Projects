@@ -1,4 +1,4 @@
-# Message Board (Assignmen#2)
+# Message Board (Assignmen#3)
 
 ## Purpose 
 Purpose of this mini project is to build a facebook like blog  using various java web-based technology.
