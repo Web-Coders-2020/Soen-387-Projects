@@ -126,6 +126,31 @@ public class Post {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Post post = (Post) o;
+
+        return  id.equals(post.id) ;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (creatorUserId != null ? creatorUserId.hashCode() : 0);
+        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
+        result = 31 * result + (isUpdated ? 1 : 0);
+        result = 31 * result + (lastModificationDate != null ? lastModificationDate.hashCode() : 0);
+        result = 31 * result + (attachmentId != null ? attachmentId.hashCode() : 0);
+        result = 31 * result + (authorizedGroupToView != null ? authorizedGroupToView.hashCode() : 0);
+        return result;
+    }
+
     public void attach(Attachment attachment) {
 
         if( attachmentId ==null || !attachmentId.isBlank())

@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @WebServlet(name = "Posts", urlPatterns = {"posts"}, loadOnStartup = 1)
@@ -23,11 +22,29 @@ public class PostsRestServlet extends HttpServlet {
 
         String requesterUserId = Authentication.extractUserIdFromSession(request);
 
+        DateFormat format = new SimpleDateFormat("yyyy-M-d-H-m", Locale.ENGLISH);
+
+
         String creatorId = request.getParameter("creatorId");
         String startDateParameter = request.getParameter("startDate");
         String endDateParameter = request.getParameter("endDate");
-        Date startDate = (startDateParameter == null) ? null : Date.valueOf(startDateParameter);
-        Date endDate = (endDateParameter == null) ? null : Date.valueOf(endDateParameter);
+        System.out.println(startDateParameter);
+        System.out.println(endDateParameter);
+        Date startDate = null;
+        Date endDate = null;
+
+        try {
+            startDate = (startDateParameter == null || startDateParameter.isBlank()) ? null : format.parse(startDateParameter);
+        }catch (Exception e)
+        {
+
+        }
+        try {
+            endDate = (endDateParameter == null || endDateParameter.isBlank()) ? null : format.parse(endDateParameter);
+        }catch (Exception e)
+        {
+
+        }
 
         String hashTagsParameter = request.getParameter("hashTags");
 

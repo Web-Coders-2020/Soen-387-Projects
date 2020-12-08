@@ -177,14 +177,17 @@ public class PostRepository {
 
                 (hasCriteria ? " where ":"")+
                 (hasCreatorId ? " creatorUser='" + creatorId +"'   and": "")+
-                (hasStartDate ?"'  creationDate> '" + startDate.toString() + "'   and" : "") +
-                (hasEndDate ? "creationDate< '" + startDate.toString() + "'   and" : "") +
+                (hasStartDate ?"  creationDate>= '" + startDate.toString() + "'   and" : "") +
+                (hasEndDate ? " creationDate<= '" + endDate.toString() + "'   and" : "") +
                 (hasGroups ? "((authorizedGroupToView in   "+allGroupsString+") or authorizedGroupToView='' or authorizedGroupToView='null') and" : "") +
                 (hasHashTags ? contentHashTagCriteria : "");
 
         if(selectSql.endsWith("and"))
             selectSql = selectSql.substring(0,selectSql.length()-3);
 
+        selectSql = selectSql +" order by creationDate desc";
+
+        System.out.println(selectSql);
         return fetchPostsWithSelect(selectSql);
     }
 

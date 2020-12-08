@@ -78,6 +78,12 @@ public class User {
             setOfGroups.addAll(repository.findAllParentsOfGroup(group));
         }
 
+        if(setOfGroups.contains("admin"))
+        {
+            for(Group g : repository.findAll())
+                setOfGroups.add(g.getName());
+        }
+
         return new ArrayList<>(setOfGroups);
     }
 }

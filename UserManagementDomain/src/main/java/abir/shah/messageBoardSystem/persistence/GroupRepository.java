@@ -23,6 +23,11 @@ public class GroupRepository {
         }
     }
 
+    public List<Group> findAll()
+    {
+        return groups;
+    }
+
     public void save(Group group) {
 
         if(isThereGroupByName(group.getName()))

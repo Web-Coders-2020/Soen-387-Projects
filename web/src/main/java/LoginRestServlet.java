@@ -22,7 +22,9 @@ public class LoginRestServlet extends HttpServlet {
 
         try{
             AuthenticateUserUsecase.Token token = userUsecase.authenticate(userId,password);
-            response.addCookie(new Cookie("session",token.getContent()));
+            Cookie cookie = new Cookie("session", token.getContent());
+            cookie.setMaxAge(Integer.MAX_VALUE);
+            response.addCookie(cookie);
             response.setStatus(200);
         }catch (NoSuchUser e)
         {

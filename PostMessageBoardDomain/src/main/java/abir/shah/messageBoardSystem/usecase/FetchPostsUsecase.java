@@ -15,6 +15,13 @@ public class FetchPostsUsecase
         List<String> groups = UserManagerFactory.createInstance().getGroupsUserBelongTo(requesterUserId);
 
         PostRepository postRepository = new PostRepository();
-        return postRepository.fetch(groups,creatorId,startDate,endDate,hashTags);
+        List<Post> postsAvailableToGroups =  postRepository.fetch(groups,creatorId,startDate,endDate,hashTags);
+        List<Post> postsCreatedByRequester =  postRepository.fetch(null,requesterUserId,startDate,endDate,hashTags);
+
+        for(Post p : postsCreatedByRequester)
+            if(!postsAvailableToGroups.contains(p))
+                postsAvailableToGroups.add(p);
+
+        return    postsAvailableToGroups;
     }
 }

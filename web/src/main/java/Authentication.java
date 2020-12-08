@@ -11,13 +11,24 @@ public class Authentication {
     {
         Cookie[] cookies = request.getCookies();
 
-        if(cookies==null || cookies.length==0 || !cookies[0].getName().equals("session"))
-            throw new RuntimeException("user is not authenticated ");
+        if(cookies!=null && cookies.length>1)
+            System.out.println("session "+cookies[0].getName() +"  value "+cookies[0].getValue());
 
-        AuthenticateUserUsecase userUsecase = new AuthenticateUserUsecase();
-        User user = userUsecase.decryptToken(cookies[0].getValue());
+        if(cookies==null)
+            throw new RuntimeException("user is not authenticated");
 
-        return  user.getId();
+        for( Cookie cookie : cookies)
+        {
+            if(cookie.getName().equals("session"))
+            {
+                AuthenticateUserUsecase userUsecase = new AuthenticateUserUsecase();
+                User user = userUsecase.decryptToken(cookie.getValue());
+
+                return  user.getId();
+            }
+        }
+
+        throw new RuntimeException("user is not authenticated");
     }
 
 }

@@ -44,3 +44,9 @@ ear {
 //      securityRole "superadmin"
     }
 }
+
+
+gretty {
+
+    contextPath = '/'
+}
