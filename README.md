@@ -20,7 +20,7 @@ refresh button. Also user should be able to select chats by providing the date r
 | Name                     |StudentID                     |Github Username
 |------------------------- |----------------------------- |----------------
 |Muhammad Shah Newaz       |25067022                      |abirshah
-|Athena Kazis              |22403641                      |athenak
+|Athena Kazis              |                              |athenak
 |                          |                              |
 |                          |                              |
 
